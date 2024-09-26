@@ -12,5 +12,4 @@ public class Botte extends Probleme {
 		return type.getBotte();
 	}
 	
-
 }

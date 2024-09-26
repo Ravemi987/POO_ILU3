@@ -12,5 +12,4 @@ public class Parade extends Bataille {
 		return type.getParade();
 	}
 	
-	
 }
