@@ -1,5 +1,7 @@
 package cartes;
 
+import java.util.Objects;
+
 public class Borne extends Carte {
 	
 	private int km;

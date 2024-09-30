@@ -10,7 +10,7 @@ import cartes.JeuDeCartes;
 public class Sabot implements Iterable<Carte> {
 
 	private Carte[] cartes;
-	private int nbCartes = JeuDeCartes.NB_CARTES_MAX; // Nombre total de cartes en comptant celels distribuées en début de partie
+	private int nbCartes = JeuDeCartes.getNbCartesMax(); // Nombre total de cartes en comptant celels distribuées en début de partie
 	private int nombreOperations = 0;
 	
 	public Sabot(Carte[] cartes) {
@@ -22,7 +22,7 @@ public class Sabot implements Iterable<Carte> {
 	}
 	
 	public void ajouterCarte(Carte carte) {
-		if (nbCartes >= JeuDeCartes.NB_CARTES_MAX) {
+		if (nbCartes >= JeuDeCartes.getNbCartesMax()) {
 			throw new IllegalStateException();
 		} else {
 			cartes[nbCartes++] = carte;
@@ -63,6 +63,7 @@ public class Sabot implements Iterable<Carte> {
 			}
 		}
 		
+		@Override
 		public void remove() {
 			verificationConcurrence();
 			if (nbCartes < 1 || !nextEffectue) {
