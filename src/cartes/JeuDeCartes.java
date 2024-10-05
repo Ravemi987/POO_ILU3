@@ -1,5 +1,8 @@
 package cartes;
 
+import java.util.Collection;
+import java.util.Collections;
+
 public class JeuDeCartes {
 
 	private static final int NB_CARTES_MAX = 106;
@@ -15,6 +18,7 @@ public class JeuDeCartes {
 			new Configuration(new Botte(Type.FEU), 1), new Configuration(new Botte(Type.ESSENCE), 1),
 			new Configuration(new Botte(Type.CREVAISON), 1), new Configuration(new Botte(Type.ACCIDENT), 1) };
 
+	
 	public String affichageJeuCartes() {
 		StringBuilder string = new StringBuilder();
 		for (Configuration config : typesDeCartes) {
@@ -23,10 +27,12 @@ public class JeuDeCartes {
 		return string.toString();
 	}
 	
+	
 	public static int getNbCartesMax() {
 		return NB_CARTES_MAX;
 	}
 
+	
 	private int getCount() {
 		int count = 0;
 		for (Configuration config : typesDeCartes) {
@@ -34,9 +40,8 @@ public class JeuDeCartes {
 		}
 		return count;
 	}
-	
-	
 
+	
 	public Carte[] donnerCartes() {
 		Carte[] cartes = new Carte[getCount()];
 
@@ -48,7 +53,26 @@ public class JeuDeCartes {
 		}
 		return cartes;
 	}
+	
+	
+	public boolean checkCount() {
+		Carte[] cartes = donnerCartes();
+		for (int i = 0, count = 0; i < 19; i++) {
+			Carte c = typesDeCartes[i].getCarte();
+			for (int j = 0; j < cartes.length; j++) {
+				if (cartes[j].equals(c)) {
+					count++;
+				}
+			}
+			if (typesDeCartes[i].getNbExemplaires() != count) {
+				return false;
+			}
+			count = 0;
+		}
+		return true;
+	}
 
+	
 	private static class Configuration {
 
 		private int nbExemplaires;
