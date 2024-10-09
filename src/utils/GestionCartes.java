@@ -90,6 +90,7 @@ public class GestionCartes {
 			int j = 0;
 			E elem1 = iter1.next();
 			if (prev != null && !elem1.equals(prev)) {
+				// @TODO facto
 				for (ListIterator<E> iter2 = list.listIterator(); iter2.hasNext();) {
 					E elem2 = iter2.next();
 					if (j > i && elem2.equals(prev)) {

@@ -1,8 +1,5 @@
 package cartes;
 
-import java.util.Collection;
-import java.util.Collections;
-
 public class JeuDeCartes {
 
 	private static final int NB_CARTES_MAX = 106;
@@ -71,7 +68,7 @@ public class JeuDeCartes {
 		}
 		return true;
 	}
-
+	
 	
 	private static class Configuration {
 

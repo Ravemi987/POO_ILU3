@@ -1,5 +1,5 @@
 package cartes;
 
-abstract class Limite extends Carte {
+public abstract class Limite extends Carte {
 
 }
