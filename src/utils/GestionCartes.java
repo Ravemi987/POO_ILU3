@@ -83,21 +83,25 @@ public class GestionCartes {
 		return listTriee;
 	}
 	
-	public static <E> boolean verifierRassemblement(List<E> list) {
+	public static <E> boolean trouverElementFinListe(List<E> listeRassemble, E element, int index) {
+		int j = 0;
+		for (ListIterator<E> iter2 = listeRassemble.listIterator(); iter2.hasNext();) {
+			E elem2 = iter2.next();
+			if (j > index && elem2.equals(element)) {
+				return false;
+			}
+			j++;
+		}
+		return true;
+	}
+	
+	public static <E> boolean verifierRassemblement(List<E> listeRassemble) {
 		E prev = null;
 		int i = 0;
-		for (ListIterator<E> iter1 = list.listIterator(); iter1.hasNext();) {
-			int j = 0;
+		for (ListIterator<E> iter1 = listeRassemble.listIterator(); iter1.hasNext();) {
 			E elem1 = iter1.next();
 			if (prev != null && !elem1.equals(prev)) {
-				// @TODO facto
-				for (ListIterator<E> iter2 = list.listIterator(); iter2.hasNext();) {
-					E elem2 = iter2.next();
-					if (j > i && elem2.equals(prev)) {
-						return false;
-					}
-					j++;
-				}
+				if (!trouverElementFinListe(listeRassemble, prev, i)) return false;
 			}
 			prev = elem1;
 			i++;
