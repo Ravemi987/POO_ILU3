@@ -12,4 +12,9 @@ public class Botte extends Probleme {
 		return type.getBotte();
 	}
 	
+	@Override
+	public int hashCode() {
+		return 31 * super.hashCode();
+	}
+	
 }

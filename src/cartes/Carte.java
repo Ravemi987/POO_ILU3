@@ -10,4 +10,9 @@ public abstract class Carte {
 		return false;
 	}
 	
+	@Override
+	public int hashCode() {
+		return 31 * getClass().hashCode();
+	}
+	
 }
