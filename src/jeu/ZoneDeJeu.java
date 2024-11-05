@@ -25,7 +25,19 @@ public class ZoneDeJeu {
 	private Set<Botte> bottes = new HashSet<>();
 	
 	
-	private <E> E donnerSommet(List<E> pile) {
+	public Set<Botte> getBottes() {
+		return bottes;
+	}
+	
+	public List<Limite> getLimites() {
+		return pileLimites;
+	}
+	
+	public List<Bataille> getBataille() {
+		return pileBataille;
+	}
+	
+	public <E> E donnerSommet(List<E> pile) {
 		if (!pile.isEmpty()) {
 			return pile.get(pile.size() - 1);
 		}

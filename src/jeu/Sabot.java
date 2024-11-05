@@ -10,7 +10,7 @@ import cartes.JeuDeCartes;
 public class Sabot implements Iterable<Carte> {
 
 	private Carte[] cartes;
-	private int nbCartes = JeuDeCartes.getNbCartesMax(); // Nombre total de cartes en comptant celels distribuées en début de partie
+	private int nbCartes = JeuDeCartes.getNbCartesMax(); // Nombre total de cartes en comptant celles distribuées en début de partie
 	private int nombreOperations = 0;
 	
 	public Sabot(Carte[] cartes) {

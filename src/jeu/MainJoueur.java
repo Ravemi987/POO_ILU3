@@ -13,20 +13,30 @@ public class MainJoueur {
 		
 	}
 	
-	void prendre(Carte c) {
+	public void prendre(Carte c) {
 		main.add(c);
 	}
 	
-	void jouer(Carte c) {
+	public void jouer(Carte c) {
 		assert main.contains(c);
 		main.remove(c);
 	}
 	
+	public List<Carte> getListeCartes() {
+		return main;
+	}
+	
 	public String afficherMain() {
-		StringBuilder string = new StringBuilder();
-		for (Carte c : main) {
-			string.append(c.toString() + '\n');
+		int nbCartes = main.size();
+		StringBuilder string = new StringBuilder("[");
+		
+		for (int i = 0; i < nbCartes; i++) {
+			if (i < nbCartes - 1)
+				string.append(main.get(i).toString() + ", ");
+			else
+				string.append(main.get(i).toString());
 		}
+		string.append("]\n");
 		return string.toString();
 	}
 	
