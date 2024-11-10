@@ -5,7 +5,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.NavigableSet;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.Comparator;
 
 import cartes.Carte;
 import utils.GestionCartes;
@@ -96,6 +99,25 @@ public class Jeu {
 			joueurCourant = donnerJoueurSuivant();
 		}
 		
+		NavigableSet<Joueur> clsmt = classement();
+		List<Joueur> lstClassement = new ArrayList<Joueur>(clsmt);
+		
+		string.append("Vainqueur : " + lstClassement.get(0).toString() + "\n");
+		
 		return string.toString();
+	}
+	
+	public NavigableSet<Joueur> classement() {
+		NavigableSet<Joueur> setJoueurs = new TreeSet<>(
+			new Comparator<Joueur>() {
+				public int compare(Joueur joueur1, Joueur joueur2) {
+					Integer kmJoueur1 = joueur1.donnerKmParcourus();
+					Integer kmJoueur2 = joueur2.donnerKmParcourus();
+					return kmJoueur1.compareTo(kmJoueur2);
+				}
+			}
+		);
+		setJoueurs.addAll(joueurs);
+		return setJoueurs;
 	}
 }

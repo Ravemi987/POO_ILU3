@@ -45,7 +45,7 @@ public class ZoneDeJeu {
 	}
 	
 	public boolean estPrioritaire() {
-		return bottes.contains(new Botte(Type.FEU));
+		return bottes.contains(Cartes.PRIORITAIRE);
 	}
 	
 
@@ -58,8 +58,8 @@ public class ZoneDeJeu {
 	
 	public int donnerKmParcourus() {
 		int total = 0;
-		for (Borne b : pileBorne) {
-			total += b.getKm();
+		for (Borne borne : pileBorne) {
+			total += borne.getKm();
 		}
 		return total;
 	}
